@@ -1,0 +1,59 @@
+const http = require("http"); 
+// importe package http
+
+const app = require("./app");
+// importe app.js 
+
+const normalizePort = val => {
+// Renvoie un port valide sous la forme d'une chaîne ou d'un numéro
+    const port = parseInt(val, 10);
+
+    if(isNaN(port)) {
+        return val;
+    }
+    if(port>=0){
+        return port;
+    }
+    return false;
+};
+
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const errorHandler = error => {
+// Recherche les différentes erreurs et les gère de manière appropriée
+// L'enregistre ensuite dans le server.
+    if(error.syscall !== 'listen') {
+        throw error;
+    }
+    const address = server.address();
+    const bind = typeof address === 'string' ? 'pipe' + address : 'port: ' + port;
+    switch(error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges.');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use.');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+};
+
+const server = http.createServer(app); // On a déplacé la fonction dans app.js
+
+server.on("error", errorHandler);
+server.on("listening", () => {
+    const address = server.address();
+    const bind = typeof address === 'string' ? 'pipe' + address : 'port: ' + port;
+    console.log("Listening on", + bind);
+});
+
+server.listen(port); 
+// On demande au server d'écouter le port qu'on nous envoie (si obligé) OU le 3000.
+
+// On a ensuite installé "nodemon" qui va redémarrer le server à chaque sauvegarde,
+// histoire d'avoir tout le temps les fichiers à jour !
+
