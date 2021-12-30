@@ -17,7 +17,7 @@ const normalizePort = val => {
     return false;
 };
 
-const port = normalizePort(process.env.PORT || "3000");
+const port = normalizePort(3000);
 app.set("port", port);
 
 const errorHandler = error => {
@@ -48,12 +48,9 @@ server.on("error", errorHandler);
 server.on("listening", () => {
     const address = server.address();
     const bind = typeof address === 'string' ? 'pipe' + address : 'port: ' + port;
-    console.log("Listening on", + bind);
+    console.log("Listening on", + port);
 });
 
 server.listen(port); 
-// On demande au server d'écouter le port qu'on nous envoie (si obligé) OU le 3000.
 
-// On a ensuite installé "nodemon" qui va redémarrer le server à chaque sauvegarde,
-// histoire d'avoir tout le temps les fichiers à jour !
 
