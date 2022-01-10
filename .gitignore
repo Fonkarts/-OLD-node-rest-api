@@ -1,4 +1,6 @@
 /front
+/back/images/*
+!back/images/.gitkeep
 
 # Logs
 logs
