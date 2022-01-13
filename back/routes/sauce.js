@@ -11,5 +11,7 @@ router.post("/", auth, multer, sauceCtrl.createSauce);
 router.put("/:id", auth, multer, sauceCtrl.modifySauce);
 router.delete("/:id", auth, sauceCtrl.deleteSauce);
 router.post("/:id/like", auth, sauceCtrl.likeSauce);
+// Toutes les routes "sauces" sont soumises au middleware d'authentification utilisateur
+// et utilisent les controllers sauce.
 
-module.exports = router;
+module.exports = router; 

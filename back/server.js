@@ -42,7 +42,7 @@ const errorHandler = error => {
     }
 };
 
-const server = http.createServer(app); // On a déplacé la fonction dans app.js
+const server = http.createServer(app); // Déplacement de la fonction dans app.js
 
 server.on("error", errorHandler);
 server.on("listening", () => {

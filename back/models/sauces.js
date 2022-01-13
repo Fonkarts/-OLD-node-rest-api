@@ -12,6 +12,6 @@ const sauceSchema = mongoose.Schema({
     dislikes: {type: Number, default: 0},
     usersLiked: {type: Array},
     usersDisliked: {type: Array}
-});
+}); // Toutes les sauces dans l'application contiendront ces informations.
 
 module.exports = mongoose.model("Sauce", sauceSchema);

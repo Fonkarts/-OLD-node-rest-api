@@ -8,5 +8,6 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.plugin(uniqueValidator);
+// Utilisation de mongoose-unique-validator sur ce schéma
 
 module.exports = mongoose.model("User", userSchema);
