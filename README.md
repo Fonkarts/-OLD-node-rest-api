@@ -1,7 +1,9 @@
-# SebastienHOUCHET_6_27122021
- Une API sécurisée, réalisée dans le cadre du Projet OC "Hot Takes".
+# [OLD] Hot Takes API
+Hot Takes API is the first project I did with Node.js/Express.
+It's a secured REST API, that handles requests/responses for a given front-end app (spicy sauces app).
+It includes features like token handling (JsonWebToken), password hashing (Bcrypt), MongoDB database management (Mongoose), etc..
 
-Installation
+## Installation
 Here are the dependancies you need to install:
 
 NodeJS 12.14 or 14.0.
@@ -11,8 +13,12 @@ On Windows, these installations require to use PowerShell in administrator mode.
 
 Then, clone this repo, run npm install, and run npm install --save-dev run-script-os.
 
-Usage
-Run npm start. This should both run the local server and launch your browser.
+## Usage
+
+```bash
+npm start
+```
+This should both run the local server and launch your browser.
 
 If your browser fails to launch, or shows a 404 error, navigate your browser to http://localhost:8080.
 
